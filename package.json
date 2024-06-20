@@ -1,0 +1,20 @@
+{
+  "name": "tech-refresher-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "npm install"
+  },
+  "author": "Gabe Estrada",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "pg-promise": "^11.8.0",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.13.0",
+    "yamljs": "^0.3.0"
+  }
+}
