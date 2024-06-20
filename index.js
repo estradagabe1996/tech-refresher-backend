@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 const swaggerUI = require('swagger-ui-express');
 const YAML = require('yamljs');
-const swaggerJsDocs = YAML.load('./api.yaml');
+
 const path = require('path');
 const bodyParser = require("body-parser"); // for parsing application/json
 const app = express();
