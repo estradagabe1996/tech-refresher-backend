@@ -10,6 +10,9 @@ const path = require('path');
 const bodyParser = require("body-parser"); // for parsing application/json
 const app = express();
 const db = pgp("postgres://kugfhzwa:XDEvpJvLkLV3cPozzlgmC2L9PRM5BJCw@ruby.db.elephantsql.com/kugfhzwa");
+let response = db.any(query);
+pgp.end();
+return response;
 
  
 app.use('/static', express.static(path.join(__dirname, 'public')));
