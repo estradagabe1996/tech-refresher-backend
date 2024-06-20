@@ -1,0 +1,105 @@
+swagger: "2.0"
+info:
+  title: This is our tech refresher API 
+  description: This is a tech refresher documentation
+  version: "1.0.0"
+  contact:
+    email: davidle241872@yahoo.com
+servers:
+  - url: "http://localhost:3001/api-docs/"
+    description: This is my local server
+schemes: [http, https]
+
+paths:
+  /tech  :
+    post:
+      summary: Adds an technologies to the list
+      description: Adds an technologies to the list. If a list parameter is provided it add multiple technologies in one call.
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Object containing the list of technologies 
+          required: true
+          schema:
+            type: object
+            properties:
+              list:
+                type: array
+                items:
+                  $ref: '#/definitions/tech'
+      responses: 
+        200:
+          description: technologies list posted
+        400:
+          description: Bad Request
+    get:
+      summary: Returns an technologies list
+      description: Returns a list of all technologies; if a name is provided, only a single technologies is returned
+      parameters:
+        - name: name
+          in: query
+          description: Name of the technologies 
+          required: false 
+          type: string
+      responses:
+        200:
+          description: Technologies list retrieved
+        400: 
+          description: Bad request
+
+  /tech/{name}:
+    delete:
+      summary: deletes an technology
+      description: Deletes an technology from the list
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the technology to delete
+          type: string
+      responses:
+        200:
+          description: technologies deleted
+    put:
+      summary: Updates an existing technologies and modifies its data
+      description: the name of task to be updated in the technology list 
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: the name of the task to be updated
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              technologies:
+                type: string
+              completed:
+                type: boolean
+      responses:
+        200:
+          description: technologies updated
+        400:
+          description: Bad request
+
+definitions:
+  tech:
+    type: object
+    properties:
+      name:
+        type: integer
+      tech:
+        type: string
+      completed:
+        type: boolean
