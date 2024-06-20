@@ -74,6 +74,10 @@ Endpoint:
     GET endpoint for fetching tech cards
 */
 
+app.get('/', async (req, res) => {
+  res.json({ message: 'Welcome to the tech-refresher-backend API' });
+});
+
 app.get('/tech', async (req, res) => {
   res.json(await db.many('SELECT * FROM tech ORDER BY RANDOM() LIMIT 10'))
 });
