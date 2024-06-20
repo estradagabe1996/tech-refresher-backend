@@ -1,14 +1,11 @@
 const pgp = require('pg-promise')();
 const winston = require('winston');
 const express = require('express');
+const app = express();
 const bcrypt = require('bcrypt');
 const router = express.Router();
-const swaggerUI = require('swagger-ui-express');
-const YAML = require('yamljs');
-
 const path = require('path');
 const bodyParser = require("body-parser"); // for parsing application/json
-const app = express();
 const db = pgp("postgres://kugfhzwa:XDEvpJvLkLV3cPozzlgmC2L9PRM5BJCw@ruby.db.elephantsql.com/kugfhzwa");
 
 
@@ -18,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); 
 
 app.use(bodyParser.json());
-app.use("/api-docs", swaggerUI.serve,swaggerUI.setup(swaggerJsDocs));
+
 
 
 
